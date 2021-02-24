@@ -63,6 +63,7 @@ function gotoStep2() {
     elePara.innerHTML = `You have selected a ${choice}, please input the required variables.`;
     step2Ele.appendChild(elePara);
     var eleDivArgs = document.createElement("div");
+	var fragment = new DocumentFragment();
     for (param of shape.parameters) {
       var eleInput = document.createElement("input");
       var eleLabel = document.createElement("label");
@@ -70,12 +71,12 @@ function gotoStep2() {
       eleInput.name = "parameters";
       eleLabel.innerHTML = param;
       eleLabel.setAttribute("class", "arg__params");
-      eleDivArgs.appendChild(eleLabel);
-      eleDivArgs.appendChild(eleInput);
-      eleDivArgs.appendChild(document.createElement("br"));
+	  fragment.appendChild(eleLabel);
+	  fragment.appendChild(eleInput);
+	  fragment.appendChild(document.createElement("br"));
     }
     eleDivArgs.setAttribute("class", "args");
-    step2Ele.appendChild(eleDivArgs);
+    step2Ele.appendChild(fragment);
     var elDivActions = document.createElement("div");
     var elBtn = document.createElement("button");
     elBtn.innerHTML = "Go to step 3.";
